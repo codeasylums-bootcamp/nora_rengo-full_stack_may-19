@@ -1,0 +1,27 @@
+.class31{
+    position: fixed;
+    top:120px;
+    right:60px;
+    display:inline-block;
+
+    /* background-color:rgba(0,0,0,0.2);   */
+    
+}
+
+.class31:hover{
+
+    /* background-color: aqua; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.class32{
+    display: inline-block;
+    margin:15px;
+}
+.class33{
+    float:right;
+    display: inline-block;
+    margin-top:5px;
+    margin-right: 5px;
+}
+
