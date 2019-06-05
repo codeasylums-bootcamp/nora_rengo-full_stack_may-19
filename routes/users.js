@@ -20,7 +20,7 @@ router.get('/', function (req, res) {
 
 
 
-router.put('/users/unfollow', auth,function (req, res) {
+router.put('/users/unfollow',function (req, res) {
     
                 userModel.findByIdAndUpdate(req.body.user1, {$pull: {following: req.body.user2}})
                     .exec()
@@ -39,7 +39,7 @@ router.put('/users/unfollow', auth,function (req, res) {
 
 
 
-router.put('/users/follow',auth, function (req, res) {
+router.put('/users/follow', function (req, res) {
     
                 userModel.findByIdAndUpdate(req.body.user1, { $push: { following: req.body.user2 } }, { new: true })
                     .exec()

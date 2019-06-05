@@ -63,7 +63,7 @@ router.get('/posts',auth,function(req,res){
 // })
 
 
-router.post('/posts',auth,upload.single('productImage'),function(req,res){
+router.post('/posts',upload.single('productImage'),function(req,res){
     console.log(req.file);
     const newPost = new postModel({
         _id : new mongoose.Types.ObjectId(),
@@ -75,7 +75,7 @@ router.post('/posts',auth,upload.single('productImage'),function(req,res){
     res.send("POst created !!").status(201);
 })
 
-router.put('/posts/like',auth,function(req,res){
+router.put('/posts/like',function(req,res){
     //var ids = req.body.likes.user_id;
     
        postModel.findByIdAndUpdate(req.body.pId, {$push: {likes: req.body.likes}},  {new: true})
@@ -90,7 +90,7 @@ router.put('/posts/like',auth,function(req,res){
         })
 })
 
-router.put('/posts/unlike',auth,function(req,res){
+router.put('/posts/unlike',function(req,res){
     //var ids = req.body.likes.user_id;
     
        postModel.findByIdAndUpdate(req.body.pId, {$pull: {likes: req.body.likes}},  {new: true})
@@ -106,7 +106,7 @@ router.put('/posts/unlike',auth,function(req,res){
       
 })
 
-router.post('/posts/comment',auth,function(req,res){
+router.post('/posts/comment',function(req,res){
     //var ids = req.body.likes.user_id;
     
        postModel.findByIdAndUpdate(req.body.pId, {$push: {comment: req.body.comment}},  {new: true})
