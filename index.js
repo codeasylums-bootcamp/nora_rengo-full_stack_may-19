@@ -6,11 +6,12 @@ const mongoose = require('mongoose');
 const port=7000;
 const app=express();
 
+app.use(express.static('uploads'));
+
 app.use(parser.json());
 app.use(parser.urlencoded({extended:true}));
 
 mongoose.connect('mongodb+srv://kalpit:qwerty1234@cluster0-qzlbf.mongodb.net/ides?retryWrites=true&w=majority');
-
 const users = require('./routes/users');
 const posts = require('./routes/posts');
 

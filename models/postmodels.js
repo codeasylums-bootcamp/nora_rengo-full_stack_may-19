@@ -4,11 +4,11 @@ const postSchema = mongoose.Schema({
 
     category:{type: String, required:true},
 
-    img:{type: String, required:true},
+    img:{type: String},
 
     user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
 
-    comment: [ {user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    comment: [ {user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'User',unique: true},
           content: {type:String}}],
     
     likes: [ {user_id: {type: String, ref: 'User'}}]

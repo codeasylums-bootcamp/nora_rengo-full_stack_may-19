@@ -5,6 +5,43 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const postModel = require('../models/postmodels');
 const auth = require('../auth');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const methodOverride = require('method-override');
+
+
+//storage engine
+// const storage = new GridFsStorage({
+//     url: mongoURI,
+//     file: (req, file) => {
+//       return new Promise((resolve, reject) => {
+//         crypto.randomBytes(16, (err, buf) => {
+//           if (err) {
+//             return reject(err);
+//           }
+//           const filename = buf.toString('hex') + path.extname(file.originalname);
+//           const fileInfo = {
+//             filename: filename,
+//             bucketName: 'uploads'
+//           };
+//           resolve(fileInfo);
+//         });
+//       });
+//     }
+//   });
+//   const upload = multer({ storage });
+  
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        cb(null, './uploads');
+    },
+    filename: function(req,file, cb){
+        cb(null, new Date().toISOString() + file.originalname);
+    }
+})
+const upload = multer({storage: storage});
+
 
 router.get('/posts',function(req,res){
     postModel.find()
@@ -24,7 +61,9 @@ router.get('/posts',function(req,res){
 //     console.log(req);
 // })
 
-router.post('/posts', function(req,res){
+
+router.post('/posts',function(req,res){
+    console.log(req.file);
     const newPost = new postModel({
         _id : new mongoose.Types.ObjectId(),
         category : req.body.category,
@@ -48,7 +87,6 @@ router.put('/posts/like',function(req,res){
         //   }
           res.json(result)
         })
-      
 })
 
 router.put('/posts/unlike',function(req,res){

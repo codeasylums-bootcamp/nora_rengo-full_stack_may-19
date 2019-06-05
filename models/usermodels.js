@@ -8,9 +8,9 @@ const userSchema = mongoose.Schema({
 
     password: {type:String,required:true},
 
-    followedBy: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}],
+    followedBy: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users', unique: true}],
 
-    following:[{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}]
+    following:[{type: mongoose.Schema.Types.ObjectId, ref: 'Users', unique:true}]
 
 });
 
