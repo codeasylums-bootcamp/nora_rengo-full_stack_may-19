@@ -4,7 +4,7 @@ const postSchema = mongoose.Schema({
 
     category:{type: String, required:true},
 
-    img:{type: String},
+    img:{type: String,required:true},
 
     user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'},
 

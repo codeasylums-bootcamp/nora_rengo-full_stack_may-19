@@ -30,17 +30,18 @@ const methodOverride = require('method-override');
 //       });
 //     }
 //   });
-//   const upload = multer({ storage });
+//const upload = multer({ storage });
   
 const storage = multer.diskStorage({
     destination: function(req,file,cb){
-        cb(null, './uploads');
+        cb(null, './uploads/');
     },
     filename: function(req,file, cb){
         cb(null, new Date().toISOString() + file.originalname);
     }
 })
-const upload = multer({storage: storage});
+
+const upload = multer({storage:storage});
 
 
 router.get('/posts',function(req,res){
@@ -62,12 +63,12 @@ router.get('/posts',function(req,res){
 // })
 
 
-router.post('/posts',function(req,res){
+router.post('/posts',upload.single('productImage'),function(req,res){
     console.log(req.file);
     const newPost = new postModel({
         _id : new mongoose.Types.ObjectId(),
         category : req.body.category,
-        img : req.body.img,
+        img : req.file.path,
         user_id : req.body.user_id
     })
     newPost.save();
