@@ -35,10 +35,26 @@ router.post('/posts', function(req,res){
     res.send("POst created !!").status(201);
 })
 
-router.post('/posts/like',function(req,res){
+router.put('/posts/like',function(req,res){
     //var ids = req.body.likes.user_id;
     
        postModel.findByIdAndUpdate(req.body.pId, {$push: {likes: req.body.likes}},  {new: true})
+        .exec()
+        .then((result) => {
+        //   if (err) {
+        //     return res.status(400).json({
+        //       error: errorHandler.getErrorMessage(err)
+        //     })
+        //   }
+          res.json(result)
+        })
+      
+})
+
+router.put('/posts/unlike',function(req,res){
+    //var ids = req.body.likes.user_id;
+    
+       postModel.findByIdAndUpdate(req.body.pId, {$pull: {likes: req.body.likes}},  {new: true})
         .exec()
         .then((result) => {
         //   if (err) {
