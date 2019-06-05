@@ -1,0 +1,140 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+body {
+  background-color: beige;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+}
+
+h2 { margin: 0; }
+*{
+	margin: 0;
+	padding: 0;
+}
+nav{
+    
+	padding: 20px;
+	
+}
+nav a{
+    font-family: 'Anton', sans-serif;
+    color:#fff;
+    text-decoration: none;
+	padding: 21px;
+	margin-right: -3px;
+	text-decoration: none;
+	font-family: tahoma;
+	font-size: 25px;
+	transition: all .80s linear;
+}
+nav a:hover{
+    color:grey;
+}  
+
+
+.carousel-content {
+  position: absolute;
+  right: 35%;
+  top: 20%;
+  padding: 0px 15px;
+  width: 20%;
+  height: 50%;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+.carousel-content h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+.carousel p {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.carousel-content label {
+  color: #fff;
+}
+
+.carousel .img-credit {
+  color: #bbb;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+  margin: 5px;
+  padding: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.carousel .img-credit a, .carousel .img-credit a:hover {
+  color: #fff;
+}
+
+.carousel .btn {
+  padding: 5px 5%;
+  margin: 0 3%;
+}
+
+@media(min-width: 992px) {
+  .carousel .btn {
+    padding: 5px 10%;
+  }
+}
+
+@media(max-width: 991px) {
+  .carousel-content {
+    position: absolute;
+    height: 100%;
+  }
+
+  .carousel-lg-only {
+    display: none;
+  }
+}
+
+@media(max-width: 768px) {
+  .carousel {
+    background-size: 100% 100%;
+  }
+
+  .carousel-content {
+    top: 0;
+    height: 100%;
+    width: 37%;
+  }
+  
+  .carousel .btn {
+    font-size: 0.85em;
+    padding: 8px 5%;
+    max-width: 65px;
+  }
+}
+
+@media(min-device-width: 320px) and (max-device-width: 568px) {
+  .carousel {
+    background: #3667A6;
+    min-height: 275px;
+  }
+
+  .carousel-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel .img-credit {
+    display: none;
+  }
+}
+
+
+
+
+
+
