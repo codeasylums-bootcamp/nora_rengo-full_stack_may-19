@@ -1,0 +1,59 @@
+.class3{
+    display:inline-block;
+    padding:20px;
+    width: 1050px;
+    min-height: 200px;
+    margin-top:20px;
+    margin-left:430px; 
+}
+
+
+.class3:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.class4{
+    display:inline-block;
+    margin:10px;
+    border-radius: 50%;
+}
+.class5{
+    margin:20px;
+    width:80%;
+    margin:auto;
+    
+    display: block;
+}
+.class6{
+    margin:10px;
+}
+.class7{
+    display: inline-block;  
+}
+.classtxt{
+    border-radius:'10%';
+    display: block;
+    width:80%;
+    margin:auto
+}
+.classtxt:focus{
+    height:60px;
+}
+.postitpara{
+    margin-left: 50px;
+}
+.formh{ 
+    padding:20px;
+}
+.btt{
+    margin-top: 10px;
+    display: block;
+}
+.comment{
+    display: block; 
+    margin-left: 50px;
+    border-radius: 5px;
+}
+.commentshow{
+    margin-left: 50px;
+}
